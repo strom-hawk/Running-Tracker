@@ -19,7 +19,8 @@ fun DefaultView() {
     RegularTextView(
         R.string.app_name,
         R.color.primary_orange,
-        15.sp
+        15.sp,
+        0.5.sp
     )
 }
 
@@ -27,11 +28,13 @@ fun DefaultView() {
 fun RegularTextView(
     text: Int,
     textColor: Int,
-    fontSize: TextUnit
+    fontSize: TextUnit,
+    letterSpacing: TextUnit
 ) {
     Text(
         stringResource(id = text),
         color = colorResource(id = textColor),
-        fontSize = fontSize
+        fontSize = fontSize,
+        letterSpacing = letterSpacing
     )
 }

@@ -45,7 +45,8 @@ fun SplashScreenParentLayout() {
         RegularTextView(
             text = R.string.app_name,
             textColor = R.color.primary_orange,
-            18.sp
+            18.sp,
+            0.5.sp
         )
     }
 }

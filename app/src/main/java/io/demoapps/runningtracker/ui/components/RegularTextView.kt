@@ -1,13 +1,12 @@
 package io.demoapps.runningtracker.ui.components
 
-import androidx.compose.foundation.border
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
 import io.demoapps.runningtracker.R
 
 /**
@@ -17,12 +16,22 @@ import io.demoapps.runningtracker.R
 @Preview(showBackground = true)
 @Composable
 fun DefaultView() {
-    RegularTextView(R.string.app_name)
+    RegularTextView(
+        R.string.app_name,
+        R.color.primary_orange,
+        15.sp
+    )
 }
 
 @Composable
-fun RegularTextView(text: Int) {
-    val modifier = Modifier.border(1.dp, Color.Blue)
-
-    Text(stringResource(id = text), modifier = modifier)
+fun RegularTextView(
+    text: Int,
+    textColor: Int,
+    fontSize: TextUnit
+) {
+    Text(
+        stringResource(id = text),
+        color = colorResource(id = textColor),
+        fontSize = fontSize
+    )
 }

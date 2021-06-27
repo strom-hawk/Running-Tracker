@@ -2,7 +2,8 @@ package io.demoapps.runningtracker.ui.layout
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -12,7 +13,9 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import io.demoapps.runningtracker.R
+import io.demoapps.runningtracker.ui.components.RegularTextView
 
 /**
  * This file is used for the layout of the splashscreen.
@@ -33,11 +36,17 @@ fun SplashScreenParentLayout() {
         .fillMaxSize()
         .background(colorResource(id = R.color.primary_dark))
 
-    Box(
+    Column(
         modifier = modifier,
-        contentAlignment = Alignment.Center
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         AddLogoImage()
+        RegularTextView(
+            text = R.string.app_name,
+            textColor = R.color.primary_orange,
+            18.sp
+        )
     }
 }
 

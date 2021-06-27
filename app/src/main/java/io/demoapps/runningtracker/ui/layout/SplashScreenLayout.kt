@@ -7,7 +7,7 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieAnimationSpec
 import com.airbnb.lottie.compose.rememberLottieAnimationState
 import io.demoapps.runningtracker.R
-import io.demoapps.runningtracker.ui.theme.RunningTrackerTheme
+import io.demoapps.runningtracker.ui.components.RegularTextView
 
 /**
  * This file is used for the layout of the splashscreen.
@@ -16,9 +16,7 @@ import io.demoapps.runningtracker.ui.theme.RunningTrackerTheme
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    RunningTrackerTheme {
-        SplashScreenParentLayout()
-    }
+    SplashScreenParentLayout()
 }
 
 /**
@@ -27,11 +25,12 @@ fun DefaultPreview() {
 @Composable
 fun SplashScreenParentLayout() {
     LogoLottieAnimation()
+    RegularTextView(R.string.app_name)
 }
 
 
 /**
- * Adding lottie animation for logo of the application.
+ * Adds lottie animation for logo of the application.
  */
 @Composable
 fun LogoLottieAnimation() {

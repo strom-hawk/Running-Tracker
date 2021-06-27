@@ -1,15 +1,15 @@
-package io.demoapps.runningtracker
+package io.demoapps.runningtracker.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import io.demoapps.runningtracker.ui.components.view.ParentLayout
+import io.demoapps.runningtracker.ui.layout.SplashScreenParentLayout
 
-class MainActivity : ComponentActivity() {
+class SplashScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ParentLayout()
+            SplashScreenParentLayout()
         }
     }
 }

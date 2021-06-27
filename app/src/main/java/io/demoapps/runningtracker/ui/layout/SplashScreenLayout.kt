@@ -1,4 +1,4 @@
-package io.demoapps.runningtracker.ui.components.view
+package io.demoapps.runningtracker.ui.layout
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -17,12 +17,15 @@ import io.demoapps.runningtracker.ui.theme.RunningTrackerTheme
 @Composable
 fun DefaultPreview() {
     RunningTrackerTheme {
-        ParentLayout()
+        SplashScreenParentLayout()
     }
 }
 
+/**
+ * Parent function for SplashScreen.
+ */
 @Composable
-fun ParentLayout() {
+fun SplashScreenParentLayout() {
     LogoLottieAnimation()
 }
 

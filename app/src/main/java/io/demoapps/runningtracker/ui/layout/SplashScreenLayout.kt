@@ -1,8 +1,16 @@
 package io.demoapps.runningtracker.ui.layout
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieAnimationSpec
 import com.airbnb.lottie.compose.rememberLottieAnimationState
@@ -24,8 +32,17 @@ fun DefaultPreview() {
  */
 @Composable
 fun SplashScreenParentLayout() {
-    LogoLottieAnimation()
-    RegularTextView(R.string.app_name)
+    val modifier = Modifier
+        .fillMaxSize()
+        .background(colorResource(id = R.color.primary_dark))
+
+
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.Center
+    ) {
+        LogoLottieAnimation()
+    }
 }
 
 
@@ -38,5 +55,13 @@ fun LogoLottieAnimation() {
     val animationState =
         rememberLottieAnimationState(autoPlay = true, repeatCount = Integer.MAX_VALUE)
 
-    LottieAnimation(animationSpec, animationState = animationState)
+    val width = 200.dp
+    val height = 200.dp
+
+    val modifier = Modifier.size(width = width, height = height)
+
+    LottieAnimation(
+        animationSpec,
+        animationState = animationState,
+        modifier = modifier)
 }

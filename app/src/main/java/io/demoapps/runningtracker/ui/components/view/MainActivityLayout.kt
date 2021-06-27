@@ -9,6 +9,10 @@ import com.airbnb.lottie.compose.rememberLottieAnimationState
 import io.demoapps.runningtracker.R
 import io.demoapps.runningtracker.ui.theme.RunningTrackerTheme
 
+/**
+ * This file is used for the layout of the splashscreen.
+ */
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
@@ -22,6 +26,10 @@ fun ParentLayout() {
     LogoLottieAnimation()
 }
 
+
+/**
+ * Adding lottie animation for logo of the application.
+ */
 @Composable
 fun LogoLottieAnimation() {
     val animationSpec = remember { LottieAnimationSpec.RawRes(R.raw.running_tracker) }

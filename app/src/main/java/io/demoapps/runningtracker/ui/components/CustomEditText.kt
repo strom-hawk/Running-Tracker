@@ -9,8 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,6 +45,12 @@ fun CustomEditText(
         ),
         singleLine = true,
         modifier = modifier,
-        leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = null) }
+        leadingIcon = {
+            Icon(
+                imageVector = ImageVector.vectorResource(id = R.drawable.mobile),
+                contentDescription = null,
+                tint = colorResource(id = R.color.percentage_80_white)
+            )
+        }
     )
 }

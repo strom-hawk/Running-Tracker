@@ -8,7 +8,7 @@ import io.demoapps.runningtracker.router.SignUpRouter
 import io.demoapps.runningtracker.ui.layout.SplashScreenParentLayout
 
 class SplashScreen : BaseActivity() {
-    val delayToStartActivity = 2000L
+    private val delayToStartActivity = 2000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +21,12 @@ class SplashScreen : BaseActivity() {
 
     private fun checkSignUpData(){
         Handler(Looper.getMainLooper()).postDelayed({
-            SignUpRouter.startSignUpFlow(this)
+            startSignupActivity()
         }, delayToStartActivity)
+    }
+
+    private fun startSignupActivity(){
+        SignUpRouter.startSignUpFlow(this)
+        finish()
     }
 }

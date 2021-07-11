@@ -2,53 +2,61 @@ package io.demoapps.runningtracker.ui.layout
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.ConstraintSet
 import io.demoapps.runningtracker.R
-import io.demoapps.runningtracker.ui.components.RegularTextView
 
+const val signUpLogoId = "signUpLogoId"
+
+@ExperimentalComposeUiApi
 @Preview(showBackground = true)
 @Composable
 fun SignUpPreview() {
     SignUpParentLayout()
 }
 
+@ExperimentalComposeUiApi
 @Composable
 fun SignUpParentLayout() {
     val modifier = Modifier
         .fillMaxSize()
         .background(colorResource(id = R.color.primary_dark))
 
-    Column(
-        modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally
+    val constraintSet = ConstraintSet {
+        val signUpImage = createRefFor(signUpLogoId)
+
+        constrain(signUpImage) {
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+        }
+    }
+
+    ConstraintLayout(
+        constraintSet,
+        modifier = modifier
     ) {
         AddSignUpImage()
-        RegularTextView(
-            text = R.string.app_name,
-            textColor = R.color.primary_orange,
-            fontSize = 18.sp,
-            letterSpacing = 0.sp
-        )
     }
 }
 
 @Composable
-fun AddSignUpImage(){
+fun AddSignUpImage() {
     val width = 200.dp
     val height = 200.dp
 
-    val modifier = Modifier.size(width, height)
+    val modifier = Modifier
+        .size(width, height)
+        .layoutId(signUpLogoId)
     Image(
         painter = painterResource(id = R.drawable.app_logo),
         contentDescription = null,

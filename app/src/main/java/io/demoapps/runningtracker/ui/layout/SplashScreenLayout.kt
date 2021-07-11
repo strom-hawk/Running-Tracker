@@ -23,7 +23,7 @@ import io.demoapps.runningtracker.ui.components.RegularTextView
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun SplashScreenPreview() {
     SplashScreenParentLayout()
 }
 

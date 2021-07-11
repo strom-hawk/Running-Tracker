@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import io.demoapps.runningtracker.R
-import io.demoapps.runningtracker.ui.components.buttons.LeftDrawableEditText
+import io.demoapps.runningtracker.ui.components.edittext.LeftDrawableEditText
 
 const val idSignUpLogoId = "idSignUpLogoId"
 const val idEmailMobileButton = "idEmailMobileButton"
@@ -82,7 +82,7 @@ fun AddSignUpImage() {
 fun AddMobileEditText() {
 
     LeftDrawableEditText(
-        textOnButton = stringResource(id = R.string.emailMobile),
+        hint = stringResource(id = R.string.pleaseEnterMobile),
         idEmailMobileButton,
         50.dp,
         20.dp,

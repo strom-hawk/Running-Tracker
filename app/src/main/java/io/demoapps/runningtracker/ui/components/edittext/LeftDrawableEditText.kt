@@ -1,4 +1,4 @@
-package io.demoapps.runningtracker.ui.components.buttons
+package io.demoapps.runningtracker.ui.components.edittext
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -16,14 +16,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import io.demoapps.runningtracker.R
-import io.demoapps.runningtracker.ui.components.RegularTextView
+import io.demoapps.runningtracker.ui.components.CustomEditText
 
-const val leftLogo = "leftLogo"
-const val buttonText = "buttonText"
+const val editText = "editText"
 
 @Preview(showBackground = true)
 @Composable
@@ -39,7 +37,7 @@ fun RenderLeftDrawableEditText() {
 
 @Composable
 fun LeftDrawableEditText(
-    textOnButton: String,
+    hint: String,
     layoutId: String,
     height: Dp,
     padding: Dp,
@@ -49,23 +47,15 @@ fun LeftDrawableEditText(
         .background(colorResource(id = R.color.primary_orange))
         .height(height = height)
         .layoutId(layoutId)
-        .padding(padding, 0.dp, padding, 0.dp)
         .clip(RoundedCornerShape(10.dp))
 
     val constraintSet = ConstraintSet {
-        val leftLogo = createRefFor(leftLogo)
-        val buttonText = createRefFor(buttonText)
-
-        constrain(leftLogo) {
-            top.linkTo(parent.top)
-            bottom.linkTo(parent.bottom)
-            start.linkTo(parent.start)
-        }
+        val buttonText = createRefFor(editText)
 
         constrain(buttonText) {
             top.linkTo(parent.top)
             bottom.linkTo(parent.bottom)
-            start.linkTo(leftLogo.end, margin = 15.dp)
+            start.linkTo(parent.start)
             end.linkTo(parent.end)
         }
     }
@@ -74,38 +64,16 @@ fun LeftDrawableEditText(
         constraintSet = constraintSet,
         modifier = modifier
     ) {
-        AddLeftDrawable(icon)
-        AddButtonText(textOnButton)
+        AddEditText(hint)
     }
 }
 
 @Composable
-fun AddLeftDrawable(
-    icon: Int
-) {
-    val width = 20.dp
-    val height = 20.dp
+fun AddEditText(text: String) {
+    val modifier = Modifier.layoutId(editText)
 
-    val modifier = Modifier
-        .size(width, height)
-        .layoutId(leftLogo)
-
-    Image(
-        painter = painterResource(id = icon),
-        contentDescription = null,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun AddButtonText(text: String) {
-    val modifier = Modifier.layoutId(buttonText)
-
-    RegularTextView(
-        text = text,
-        textColor = R.color.white,
-        18.sp,
-        0.5.sp,
+    CustomEditText(
+        hint = text,
         modifier = modifier
     )
 }

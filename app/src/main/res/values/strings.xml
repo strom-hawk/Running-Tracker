@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Running Tracker</string>
     <string name="emailMobile">Email/Mobile</string>
+    <string name="pleaseEnterMobile">Please enter your mobile number</string>
 </resources>

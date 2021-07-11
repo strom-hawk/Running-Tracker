@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Running Tracker</string>
+    <string name="emailMobile">Email/Mobile</string>
 </resources>

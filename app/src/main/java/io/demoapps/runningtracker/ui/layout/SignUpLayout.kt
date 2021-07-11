@@ -10,16 +10,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import io.demoapps.runningtracker.R
 import io.demoapps.runningtracker.ui.components.PrimaryButton
-import io.demoapps.runningtracker.ui.components.RegularTextView
 
-const val signUpLogoId = "signUpLogoId"
+const val idSignUpLogoId = "idSignUpLogoId"
+const val idEmailMobileButton = "idEmailMobileButton"
 
 @ExperimentalComposeUiApi
 @Preview(showBackground = true)
@@ -36,12 +36,20 @@ fun SignUpParentLayout() {
         .background(colorResource(id = R.color.primary_dark))
 
     val constraintSet = ConstraintSet {
-        val signUpImage = createRefFor(signUpLogoId)
+        val signUpImage = createRefFor(idSignUpLogoId)
+        val emailLoginButton = createRefFor(idEmailMobileButton)
 
         constrain(signUpImage) {
             start.linkTo(parent.start)
             end.linkTo(parent.end)
-            top.linkTo(parent.top, margin = 100.dp)
+            top.linkTo(parent.top, margin = 150.dp)
+        }
+
+        constrain(emailLoginButton) {
+            top.linkTo(signUpImage.bottom)
+            bottom.linkTo(parent.bottom)
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
         }
     }
 
@@ -61,7 +69,7 @@ fun AddSignUpImage() {
 
     val modifier = Modifier
         .size(width, height)
-        .layoutId(signUpLogoId)
+        .layoutId(idSignUpLogoId)
 
     Image(
         painter = painterResource(id = R.drawable.app_logo),
@@ -72,8 +80,12 @@ fun AddSignUpImage() {
 
 @Composable
 fun AddEmailMobileButton() {
-/*    PrimaryButton(
-        "Primary button",
-        -1
-    )*/
+    val modifier = Modifier
+        .layoutId(idEmailMobileButton)
+
+    PrimaryButton(
+        stringResource(id = R.string.emailMobile),
+        -1,
+        modifier = modifier
+    )
 }

@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import io.demoapps.runningtracker.R
-import io.demoapps.runningtracker.ui.components.PrimaryButton
+import io.demoapps.runningtracker.ui.components.buttons.LeftDrawableButton
 
 const val idSignUpLogoId = "idSignUpLogoId"
 const val idEmailMobileButton = "idEmailMobileButton"
@@ -80,12 +80,11 @@ fun AddSignUpImage() {
 
 @Composable
 fun AddEmailMobileButton() {
-    val modifier = Modifier
-        .layoutId(idEmailMobileButton)
 
-    PrimaryButton(
-        stringResource(id = R.string.emailMobile),
-        -1,
-        modifier = modifier
+    LeftDrawableButton(
+        textOnButton = stringResource(id = R.string.emailMobile),
+        idEmailMobileButton,
+        50.dp,
+        20.dp
     )
 }

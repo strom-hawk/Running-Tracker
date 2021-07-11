@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -43,10 +44,11 @@ fun SplashScreenParentLayout() {
     ) {
         AddLogoImage()
         RegularTextView(
-            text = R.string.app_name,
+            text = stringResource(id = R.string.app_name),
             textColor = R.color.primary_orange,
             18.sp,
-            0.5.sp
+            0.5.sp,
+            Modifier
         )
     }
 }

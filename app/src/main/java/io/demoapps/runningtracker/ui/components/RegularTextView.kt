@@ -2,6 +2,7 @@ package io.demoapps.runningtracker.ui.components
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -17,24 +18,27 @@ import io.demoapps.runningtracker.R
 @Composable
 fun DefaultView() {
     RegularTextView(
-        R.string.app_name,
+        stringResource(id = R.string.app_name),
         R.color.primary_orange,
         15.sp,
-        0.5.sp
+        0.5.sp,
+        modifier = Modifier
     )
 }
 
 @Composable
 fun RegularTextView(
-    text: Int,
+    text: String,
     textColor: Int,
     fontSize: TextUnit,
-    letterSpacing: TextUnit
+    letterSpacing: TextUnit,
+    modifier: Modifier
 ) {
     Text(
-        stringResource(id = text),
+        text,
         color = colorResource(id = textColor),
         fontSize = fontSize,
-        letterSpacing = letterSpacing
+        letterSpacing = letterSpacing,
+        modifier = modifier
     )
 }
